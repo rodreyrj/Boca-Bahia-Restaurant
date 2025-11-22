@@ -51,10 +51,16 @@
     <nav class="fixed top-0 w-full bg-bb-primary text-bb-cream z-50 shadow-lg">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             
-            <!-- Logo -->
-            <div class="text-2xl font-serif font-bold tracking-widest">
-                Boca Bahia
-            </div>
+            <!-- Logo y Nombre (Ahora un enlace con la nueva imagen) -->
+            <a href="#inicio" class="flex items-center space-x-2 text-2xl font-serif font-bold tracking-widest hover:text-bb-secondary transition duration-300">
+                <!-- Nueva Imagen junto al logo/nombre -->
+                <img src="https://i.postimg.cc/nrGnRJQK/IMG-20251122-WA0040.jpg"
+                     alt="Icono de Boca Bahia"
+                     class="h-8 w-auto rounded-full shadow-md"
+                     onerror="this.onerror=null;this.src='https://placehold.co/32x32/bb-secondary/bb-dark?text=BB';"
+                >
+                <span>Boca Bahia</span>
+            </a>
             
             <!-- Botón de Menú Hamburguesa (visible solo en móviles) -->
             <button id="menu-button" class="md:hidden p-2 rounded-lg hover:bg-bb-dark transition duration-200" aria-label="Toggle Menu">
@@ -103,7 +109,7 @@
                 <p class="text-xl mb-8">
                     Pescados frescos, mariscos exquisitos y el mejor ambiente frente al mar.
                 </p>
-                <!-- BOTÓN PRINCIPAL: Ahora apunta a la sección de la Carta Digital (#carta-digital) -->
+                <!-- BOTÓN PRINCIPAL: apunta a la sección de la Carta Digital (#carta-digital) -->
                 <a href="#carta-digital" class="inline-block bg-white text-bb-primary px-8 py-3 rounded-full font-bold text-lg hover:bg-bb-secondary hover:text-bb-dark transition duration-300 transform hover:scale-105">
                     VER NUESTRO MENÚ
                 </a>
@@ -254,7 +260,7 @@
     </section>
 
     <!-- Sección de Carta Digital (Enlace directo a la carta) -->
-    <!-- Se añade el ID para que el botón principal y los enlaces de navegación funcionen -->
+    <!-- ID 'carta-digital' para navegación -->
     <section id="carta-digital" class="py-16 md:py-24 bg-bb-primary text-white">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-center text-4xl font-serif font-bold mb-12 text-white">
@@ -311,7 +317,7 @@
         </div>
     </footer>
     
-    <!-- Script para la funcionalidad del Menú Hamburguesa -->
+    <!-- Script para la funcionalidad del Menú Hamburguesa y Seguridad -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuButton = document.getElementById('menu-button');
@@ -334,6 +340,41 @@
                     }
                 });
             });
+
+            /* -------------------------------------------
+             * SEGURIDAD INVISIBLE (Anti-Inspección)
+             * ------------------------------------------- */
+
+            // 1. Deshabilitar el menú contextual (clic derecho)
+            document.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+            });
+
+            // 2. Deshabilitar atajos de teclado para herramientas de desarrollador y ver código fuente
+            document.addEventListener('keydown', (e) => {
+                const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+
+                // F12 (Herramientas de desarrollador)
+                if (e.key === 'F12') {
+                    e.preventDefault();
+                }
+
+                // Ctrl/Cmd + Shift + I (Abrir/Cerrar DevTools)
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+                    e.preventDefault();
+                }
+
+                // Ctrl/Cmd + Shift + J (Abrir Consola DevTools)
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
+                    e.preventDefault();
+                }
+                
+                // Ctrl/Cmd + U (Ver código fuente)
+                if ((e.ctrlKey || e.metaKey) && (e.key === 'U' || e.key === 'u')) {
+                    e.preventDefault();
+                }
+            });
+            // -------------------------------------------
         });
     </script>
 
