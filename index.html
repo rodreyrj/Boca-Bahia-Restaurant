@@ -3,412 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boca Bahia | RESTAURANT</title>
-    <link rel="apple-touch-icon" href="https://i.postimg.cc/nrGnRJQK/IMG-20251122-WA0040.jpg">
-    <meta name="theme-color" content="#orange" />
+    <!-- Google Search Verification -->
+    <meta name="google-site-verification" content="l3IAjRSk-FQ3HcaC9vK3Er5JFjV4BIygwMvBDJnzMB8" />
     
+    <!-- SEO Básico para aparecer en Google -->
+    <meta name="description" content="Zukexiacorp - Marketing Digital, Diseño Web y Soporte Técnico Profesional. Especialistas en Redes Sociales y Soporte PC/Android.">
+    <meta name="keywords" content="Marketing Digital, Diseño Web, Soporte Técnico, Zukexiacorp, Rodrey, Edición de Video, Eliminar cuenta Google, Cuba">
+    <meta name="author" content="Zukexiacorp">
     
-    <!-- Carga de Tailwind CSS -->
+    <link rel="apple-touch-icon" href="https://i.ibb.co/yFPQ7Sxx/IMG-20251216-123233-732-removebg-preview.png">
+    <title>Zukexiacorp | Marketing Digital & Soporte Tech</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Configuración de Tailwind para usar un tema más cálido y marinero -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'bb-primary': '#B5332F', // Un rojo profundo para acento
-                        'bb-secondary': '#FDD231', // Un amarillo dorado para destacar
-                        'bb-dark': '#1E293B', // Azul oscuro casi negro para texto
-                        'bb-cream': '#F8F8F0', // Fondo crema suave
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Georgia', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Estilos personalizados */
-        .hero-background {
-            background: linear-gradient(135deg, #B5332F 0%, #E66465 100%);
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
-        .card-shadow {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .whatsapp-button {
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
-        }
-        .whatsapp-button:hover {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-        }
-        .call-button {
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
-        }
-        .call-button:hover {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+        .hero-pattern {
+            background-color: #1a202c;
+            background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
         }
     </style>
-    <meta name="google-site-verification" content="l3IAjRSk-FQ3HcaC9vK3Er5JFjV4BIygwMvBDJnzMB8" />
 </head>
-<body class="font-sans bg-bb-cream text-bb-dark">
+<body class="bg-slate-900 text-white">
 
-    <!-- Barra de Navegación FIJA (Sticky Header) y Responsiva -->
-    <nav class="fixed top-0 w-full bg-bb-primary text-bb-cream z-50 shadow-lg">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            
-            <!-- Logo y Nombre (Ahora un enlace con la nueva imagen) -->
-            <a href="#inicio" class="flex items-center space-x-2 text-2xl font-serif font-bold tracking-widest hover:text-bb-secondary transition duration-300">
-                <!--  -->
-                <img src="https://i.postimg.cc/nrGnRJQK/IMG-20251122-WA0040.jpg"
-                     alt="Icono de Boca Bahia"
-                     class="h-8 w-auto rounded-full shadow-md"
-                     onerror="this.onerror=null;this.src='https://placehold.co/32x32/bb-secondary/bb-dark?text=BB';"
-                >
-                <span>Boca Bahia RESTAURANT</span>
-            </a>
-            
-            <!-- Botón de Menú Hamburguesa (visible solo en móviles) -->
-            <button id="menu-button" class="md:hidden p-2 rounded-lg hover:bg-bb-dark transition duration-200" aria-label="Toggle Menu">
-                <!-- Icono SVG de Hamburguesa (Menú) -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
-            
-            <!-- MENÚ DE NAVEGACIÓN (Desktop: Flex, Mobile: Oculto) -->
-            <div class="hidden md:flex space-x-6 items-center text-sm font-semibold">
-                <!-- Enlaces de navegación de PC -->
-                <a href="#inicio" class="hover:text-bb-secondary transition duration-300">INICIO</a>
-                <a href="#nosotros" class="hover:text-bb-secondary transition duration-300">NOSOTROS</a>
-                <a href="#menu" class="hover:text-bb-secondary transition duration-300">MENÚ</a>
-                <a href="#contacto" class="hover:text-bb-secondary transition duration-300">CONTACTO</a>
-                
-                <!-- Botón de Reserva de PC -->
-                <a href="https://wa.me/+5359579997?text=Me%20interesa%20reservar%20mesa" target="_blank" class="bg-bb-secondary text-bb-dark px-4 py-2 rounded-lg hover:bg-white transition duration-300 transform hover:scale-105 ml-6">
-                    RESERVAR MESA (WhatsApp)
-                </a>
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                        ZUKEXIACORP
+                    </span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#inicio" class="hover:text-blue-400 px-3 py-2 transition">Inicio</a>
+                        <a href="#servicios" class="hover:text-blue-400 px-3 py-2 transition">Servicios</a>
+                        <a href="#contacto" class="hover:text-blue-400 px-3 py-2 transition">Contacto</a>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menu-btn" class="p-2 rounded-md hover:bg-slate-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
-        
-        <!-- MENÚ MÓVIL DESPLEGABLE (Oculto por defecto en todos los tamaños) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-bb-primary shadow-xl">
-            <a href="#inicio" class="block py-3 px-4 text-sm font-semibold hover:bg-bb-dark transition duration-300 border-t border-bb-dark/20">INICIO</a>
-            <a href="#nosotros" class="block py-3 px-4 text-sm font-semibold hover:bg-bb-dark transition duration-300">NOSOTROS</a>
-            <a href="#menu" class="block py-3 px-4 text-sm font-semibold hover:bg-bb-dark transition duration-300">MENÚ</a>
-            <a href="#contacto" class="block py-3 px-4 text-sm font-semibold hover:bg-bb-dark transition duration-300">CONTACTO</a>
-            <!-- Botón de reserva móvil -->
-            <a href="https://wa.me/+5359579997?text=Me%20interesa%20reservar%20mesa" target="_blank" class="block text-center bg-bb-secondary text-bb-dark px-4 py-3 m-4 rounded-lg font-medium hover:bg-white transition duration-300">
-                RESERVAR MESA (WhatsApp)
-            </a>
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-b border-white/10">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#inicio" class="block px-3 py-2 hover:bg-slate-700 rounded-md">Inicio</a>
+                <a href="#servicios" class="block px-3 py-2 hover:bg-slate-700 rounded-md">Servicios</a>
+                <a href="#contacto" class="block px-3 py-2 hover:bg-slate-700 rounded-md">Contacto</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Header / Hero Section (pt-20 para compensar el header fijo) -->
-    <header id="inicio" class="hero-background text-bb-cream pt-20">
-        <!-- Contenido Principal del Hero -->
-        <div class="container mx-auto px-4 pt-16 pb-24 md:pt-24 md:pb-32 flex flex-col md:flex-row items-center justify-between relative overflow-hidden">
-            <div class="md:w-1/2 z-10 text-center md:text-left">
-                <h1 class="text-5xl md:text-6xl font-serif font-extrabold leading-tight mb-4">
-                    La Joya de la Cocina Costera
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-pattern pt-32 pb-20 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 space-y-6">
+                <h2 class="text-blue-400 font-semibold tracking-widest uppercase italic">By Rodrey</h2>
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+                    <span class="text-blue-500">Zukexiacorp:</span> Elevando tu presencia Digital.
                 </h1>
-                <p class="text-xl mb-8">
-                    Pescados frescos, mariscos exquisitos y el mejor ambiente frente al mar.
+                <p class="text-gray-400 text-lg">
+                    Expertos en promoción de negocios, marketing en Instagram, edición de video publicitario y soluciones técnicas avanzadas para PC y dispositivos móviles.
                 </p>
-                <!-- BOTÓN PRINCIPAL: apunta a la sección de la Carta Digital (#carta-digital) -->
-                <a href="#carta-digital" class="inline-block bg-white text-bb-primary px-8 py-3 rounded-full font-bold text-lg hover:bg-bb-secondary hover:text-bb-dark transition duration-300 transform hover:scale-105">
-                    VER NUESTRO MENÚ
-                </a>
-            </div>
-            <!-- Imagen Principal (Plato Estrella del Mar) - Responsividad con max-w-lg -->
-            <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center z-10">
-                <!--  -->
-                <img src="https://i.postimg.cc/XqbCBnb2/IMG-20251122-WA0038.jpg"
-                     alt="Plato Principal del Menú"
-                     class="w-full max-w-lg rounded-xl shadow-2xl transform hover:rotate-1 transition duration-500 ease-in-out"
-                     onerror="this.onerror=null;this.src='https://placehold.co/500x350/1E293B/FDD231?text=Boca+Bahia';"
-                >
-            </div>
-        </div>
-    </header>
-
-    <!-- Sección de Características / Propuesta de Valor -->
-    <section id="nosotros" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-center text-4xl font-serif font-bold mb-12 text-bb-primary">
-                Boca Bahia te ofrece...
-            </h2>
-            <!-- Grid de 2 columnas en móvil y 4 en PC -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <!-- Característica 1: Pescado Fresco -->
-                <div class="flex flex-col items-center p-4">
-                    <div class="text-4xl text-bb-secondary mb-3">
-                        🐟
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">PESCA DEL DÍA</h3>
-                    <p class="text-sm text-gray-600">
-                        Solo ingredientes recién pescados, directos a tu mesa.
-                    </p>
-                </div>
-                <!-- Característica 2: Chef Experto -->
-                <div class="flex flex-col items-center p-4">
-                    <div class="text-4xl text-bb-secondary mb-3">
-                        👨‍🍳
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">CHEF DE RENOMBRE</h3>
-                    <p class="text-sm text-gray-600">
-                        Recetas auténticas con un toque de innovación.
-                    </p>
-                </div>
-                <!-- Característica 3: Ambiente -->
-                <div class="flex flex-col items-center p-4">
-                    <div class="text-4xl text-bb-secondary mb-3">
-                        🍹
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">VISTA ESPECTACULAR</h3>
-                    <p class="text-sm text-gray-600">
-                        Disfruta tu cena con el sonido de las olas.
-                    </p>
-                </div>
-                <!-- Característica 4: Eventos Privados -->
-                <div class="flex flex-col items-center p-4">
-                    <div class="text-4xl text-bb-secondary mb-3">
-                        🎁
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">EVENTOS PRIVADOS</h3>
-                    <p class="text-sm text-gray-600">
-                        Celebra tus momentos especiales en nuestro espacio.
-                    </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="https://wa.me/5356639178" target="_blank" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full font-bold transition flex items-center">
+                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                    </a>
+                    <a href="#servicios" class="border border-white/20 hover:bg-white/10 px-8 py-3 rounded-full font-bold transition">
+                        Nuestros Servicios
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Sección de Destacados / Minipromociones -->
-    <section id="menu" class="py-16 md:py-24 bg-bb-cream">
-        <div class="container mx-auto px-4">
-            <h2 class="text-center text-4xl font-serif font-bold mb-12 text-bb-dark">
-                Nuestros Platos Destacados
-            </h2>
-            <!-- Grid de 1 columna en móvil y 3 en PC -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <!-- Destacado 1: PLATOS ESTRELLA -->
-                <div class="bg-bb-dark text-white rounded-xl overflow-hidden card-shadow hover:scale-[1.02] transition duration-300">
-                    <!--  -->
-                    <img src="https://i.postimg.cc/5N9Mp87K/IMG-20251122-WA0009.jpg"
-                         alt="Platos Estrella del Menú"
-                         class="w-full h-48 object-cover"
-                         onerror="this.onerror=null;this.src='https://placehold.co/400x250/B5332F/FFFFFF?text=Platos+Estrella';"
-                    >
-                    <div class="p-5">
-                        <h3 class="text-2xl font-serif font-bold text-bb-secondary mb-2">PLATOS ESTRELLA</h3>
-                        <p class="text-sm">
-                            Nuestra selección más aclamada por chefs y clientes. ¡Sabores que enamoran!
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Destacado 2: DULCES Y POSTRES -->
-                <div class="bg-white rounded-xl overflow-hidden card-shadow hover:scale-[1.02] transition duration-300">
-                    <!--  -->
-                    <img src="https://i.postimg.cc/CMBhkG2w/IMG-20251122-WA0031.jpg"
-                         alt="Variedad de Postres y Dulces"
-                         class="w-full h-48 object-cover"
-                         onerror="this.onerror=null;this.src='https://placehold.co/400x250/B5332F/FFFFFF?text=Postres';"
-                    >
-                    <div class="p-5">
-                        <h3 class="text-2xl font-serif font-bold text-bb-primary mb-2">DULCES Y POSTRES</h3>
-                        <p class="text-sm text-gray-700">
-                            Una exquisita variedad de postres caseros para un final perfecto.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Destacado 3: Bebidas -->
-                <div class="bg-bb-primary text-white rounded-xl overflow-hidden card-shadow hover:scale-[1.02] transition duration-300">
-                    <!--  -->
-                    <img src="https://i.postimg.cc/fbp7L7FX/IMG-20251122-WA0010.jpg"
-                         alt="Cocteles de Autor"
-                         class="w-full h-48 object-cover"
-                         onerror="this.onerror=null;this.src='https://placehold.co/400x250/1E293B/FDD231?text=Cocteles';"
-                    >
-                    <div class="p-5">
-                        <h3 class="text-2xl font-serif font-bold text-bb-secondary mb-2">COCTELES DE AUTOR</h3>
-                        <p class="text-sm">
-                            Bebidas refrescantes inspiradas en los sabores del trópico.
-                        </p>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-600 rounded-3xl rotate-6 opacity-20 shadow-2xl"></div>
+                    <div class="absolute inset-0 bg-slate-800 rounded-3xl border border-white/10 flex items-center justify-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=500&q=80" alt="Tech Business" class="object-cover w-full h-full opacity-80">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección: Valoración y Ambiente (5 Estrellas) -->
-    <section class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-serif font-bold mb-4 text-bb-dark">
-                Disfruta en nuestro restaurante 5 estrellas
-            </h2>
-            <p class="text-xl mb-12 text-gray-600">
-                Calidad certificada y el mejor ambiente frente al mar.
-            </p>
+    <!-- Services Grid -->
+    <section id="servicios" class="py-20 bg-slate-900 px-4">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold">Servicios Especializados</h2>
+            <div class="h-1 w-20 bg-blue-500 mx-auto mt-4"></div>
+        </div>
 
-            <!-- 5 Estrellas Doradas con SVG -->
-            <div class="flex justify-center space-x-2 mb-10">
-                <svg class="w-8 h-8 text-bb-secondary fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.917 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
-                <svg class="w-8 h-8 text-bb-secondary fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.917 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
-                <svg class="w-8 h-8 text-bb-secondary fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.917 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
-                <svg class="w-8 h-8 text-bb-secondary fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.917 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
-                <svg class="w-8 h-8 text-bb-secondary fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.917 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Marketing -->
+            <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
+                <div class="w-14 h-14 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6">
+                    <i class="fas fa-chart-line text-2xl text-blue-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Marketing Digital</h3>
+                <p class="text-gray-400">Impulsamos tu negocio en Instagram. Creación de posters, logos profesionales y gestión de marca.</p>
             </div>
 
-            <p class="text-lg italic text-gray-700 max-w-2xl mx-auto">
-                "Nuestro compromiso con la frescura, el servicio y la experiencia nos posiciona como la mejor opción de la costa."
-            </p>
+            <!-- Videos -->
+            <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
+                <div class="w-14 h-14 bg-purple-500/20 rounded-lg flex items-center justify-center mb-6">
+                    <i class="fas fa-play-circle text-2xl text-purple-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Edición de Video</h3>
+                <p class="text-gray-400">Producción de videos promocionales de alto impacto para captar clientes en segundos.</p>
+            </div>
+
+            <!-- Soporte PC -->
+            <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
+                <div class="w-14 h-14 bg-green-500/20 rounded-lg flex items-center justify-center mb-6">
+                    <i class="fas fa-tools text-2xl text-green-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Soporte Técnico PC</h3>
+                <p class="text-gray-400">Reinstalación de sistemas operativos, optimización de hardware y limpieza de virus en PC/Laptops.</p>
+            </div>
+
+            <!-- Soporte Android -->
+            <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
+                <div class="w-14 h-14 bg-red-500/20 rounded-lg flex items-center justify-center mb-6">
+                    <i class="fab fa-android text-2xl text-red-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Desbloqueo Android</h3>
+                <p class="text-gray-400">Eliminación de cuentas Google (FRP) y recuperación de acceso a dispositivos móviles.</p>
+            </div>
+
+            <!-- Web -->
+            <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
+                <div class="w-14 h-14 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-6">
+                    <i class="fas fa-code text-2xl text-yellow-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Desarrollo Web</h3>
+                <p class="text-gray-400">Sitios web modernos, rápidos y adaptados a cualquier pantalla (Desktop/Mobile).</p>
+            </div>
         </div>
     </section>
 
-    <!-- Sección de Carta Digital (Enlace directo a la carta) -->
-    <!-- ID 'carta-digital' para navegación -->
-    <section id="carta-digital" class="py-16 md:py-24 bg-bb-primary text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-center text-4xl font-serif font-bold mb-12 text-white">
-                Nuestra Carta Digital
-            </h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">
-                Explora todos nuestros platillos, cocteles y postres en tiempo real desde tu dispositivo.
-            </p>
-            <a href="https://boca-bahia-restaurant-menudigital.vercel.app/" target="_blank" class="inline-block bg-bb-secondary text-bb-dark px-10 py-4 rounded-full font-bold text-xl hover:bg-white transition duration-300 transform hover:scale-105 shadow-xl">
-                VER EL MENÚ COMPLETO
-            </a>
-            <div class="mt-12 opacity-80">
-                 <!-- Icono representativo de un menú o tablet -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-bb-secondary">
-                    <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
-                    <line x1="2" y1="9" x2="22" y2="9"></line>
-                    <path d="M12 13H8"></path>
-                    <path d="M16 13H12"></path>
-                    <path d="M12 17H8"></path>
-                </svg>
+    <!-- Contact & Social -->
+    <section id="contacto" class="py-20 bg-slate-800/50 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
+            <div class="lg:w-1/2 space-y-8">
+                <h2 class="text-3xl font-bold text-blue-400">Conectemos</h2>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center">
+                            <i class="fas fa-envelope text-blue-400"></i>
+                        </div>
+                        <span>rodreyrj@gmail.com</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center">
+                            <i class="fab fa-whatsapp text-green-400"></i>
+                        </div>
+                        <span>+53 56639178</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a title="Instagram" href="https://www.instagram.com/rodrey_blogger?igsh=ZmdzcWVtaDJpemdr" target="_blank" class="w-12 h-12 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 rounded-xl flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a title="Facebook" href="https://www.facebook.com/profile.php?id=61576623399809&mibextid=ZbWKwL" target="_blank" class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-facebook-f text-2xl"></i>
+                    </a>
+                    <a title="LinkedIn" href="https://www.linkedin.com/in/rodolfo-ramirez-jara-a221473a1/" target="_blank" class="w-12 h-12 bg-blue-700 rounded-xl flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-linkedin-in text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:w-1/2 glass-card p-8 rounded-3xl border border-white/5">
+                <h3 class="text-2xl font-bold mb-6 text-center text-purple-400">Solicitar Presupuesto</h3>
+                <a href="https://wa.me/5356639178?text=Hola%20Zukexiacorp,%20me%20gustaría%20información%20sobre..." 
+                   class="block w-full text-center py-4 bg-blue-600 hover:bg-blue-700 rounded-xl font-bold transition shadow-lg shadow-blue-500/20">
+                   Contactar Ahora
+                </a>
             </div>
         </div>
     </section>
-    <!-- FIN SECCIÓN CARTA DIGITAL -->
 
-    <!-- Footer / Pie de Página -->
-    <footer id="contacto" class="bg-bb-dark text-white py-12">
-        <div class="container mx-auto px-4 text-center">
-            
-            <!-- Botones de Contacto: WhatsApp y Teléfono -->
-            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 mb-8">
-                
-                <!-- Botón de WhatsApp -->
-                <a href="https://wa.me/+5359579997?text=Me%20interesa%20reservar%20mesa" target="_blank" class="whatsapp-button inline-flex items-center justify-center bg-[#25D366] text-white px-6 py-3 rounded-full font-bold text-lg hover:bg-[#128C7E] transform hover:scale-105 w-full sm:w-auto">
-                    <!-- WhatsApp SVG Icon -->
-                    <svg class="w-6 h-6 mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.053.51 3.992 1.408 5.719L.055 24l6.438-1.686A11.97 11.97 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zM17.4 16.3c-.2-.1-.8-.4-1.2-.6-.3-.1-.5-.2-.7.2-.2.4-.6 1-.7 1.2-.2.2-.4.2-.8.1-.4-.1-1.8-.7-3.4-2.1-1.3-1.2-2.3-2.6-2.5-3-.2-.3 0-.5.1-.7.1-.2.3-.4.4-.6.1-.2.1-.3 0-.6-.1-.3-.7-1.7-1-2.4-.2-.5-.4-.4-.6-.4-.2 0-.4-.1-.6-.1-.2 0-.6.1-.9.4-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.2 4.9 4.4 2.9 1.2 2.9 1 3.5.9.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/>
-                    </svg>
-                    RESERVAR MESA (WHATSAPP)
-                </a>
-
-                <!-- Botón de Teléfono Fijo -->
-                <a href="tel:24888734" class="call-button inline-flex items-center justify-center bg-bb-primary text-white px-6 py-3 rounded-full font-bold text-lg hover:bg-bb-secondary hover:text-bb-dark transition duration-300 transform hover:scale-105 w-full sm:w-auto">
-                    <!-- Phone SVG Icon -->
-                    <svg class="w-6 h-6 mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-5.71-5.71 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.08 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 5.09 5.09l1.17-1.17a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-                    LLAMAR A FIJO (24888734)
-                </a>
-            </div>
-
-            <p class="text-lg text-gray-400 mb-6">
-                Calle Rene Ramos Latour #85 % Gomez y Maceo Municipio Antilla
-Ref: calle del hospital frente al museo en alto
-            </p>
-            
-            <!-- Enlaces del Footer (Solo INICIO y MENÚ) -->
-            <div class="flex justify-center space-x-4 text-xs uppercase font-semibold text-gray-400">
-                <a href="#inicio" class="hover:text-bb-secondary transition duration-300">INICIO</a>
-                <span class="text-gray-600">|</span>
-                <a href="#menu" class="hover:text-bb-secondary transition duration-300">MENÚ</a>
-            </div>
-            
-            <!-- Copyright y Enlace del Desarrollador -->
-            <p class="text-sm mt-6 text-gray-500">
-                © 2025 Boca Bahia Restaurant. Todos los derechos reservados. | 
-                <a href="https://rodreyrj.vercel.app" target="_blank" class="text-gray-400 hover:text-bb-secondary transition duration-300 font-semibold">
-                    Portafolio de desarrollador rodreyrj
-                </a>
-            </p>
-        </div>
+    <footer class="py-10 border-t border-white/10 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Zukexiacorp. Todos los derechos reservados. Desarrollado por Rodrey.</p>
     </footer>
-    
-    <!-- Script para la funcionalidad del Menú Hamburguesa y Seguridad -->
+
+    <!-- Botón flotante WhatsApp -->
+    <a href="https://wa.me/5356639178" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-500/20 hover:scale-110 transition z-50">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuButton = document.getElementById('menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navLinks = mobileMenu.querySelectorAll('a');
+        // --- PROTECCIÓN INVISIBLE ---
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123) return false;
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false;
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+            if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) return false;
+        };
 
-            if (menuButton && mobileMenu) {
-                // Alternar la visibilidad del menú móvil al hacer clic en el botón
-                menuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-            
-            // Ocultar el menú móvil después de hacer clic en un enlace de navegación
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    // Solo cerrar si el menú no está oculto
-                    if (!mobileMenu.classList.contains('hidden')) {
-                         mobileMenu.classList.add('hidden');
-                    }
-                });
-            });
-
-            /* -------------------------------------------
-             * SEGURIDAD INVISIBLE (Anti-Inspección)
-             * ------------------------------------------- */
-
-            // 1. Deshabilitar el menú contextual (clic derecho)
-            document.addEventListener('contextmenu', (e) => {
-                e.preventDefault();
-            });
-
-            // 2. Deshabilitar atajos de teclado para herramientas de desarrollador y ver código fuente
-            document.addEventListener('keydown', (e) => {
-                const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
-
-                // F12 (Herramientas de desarrollador)
-                if (e.key === 'F12') {
-                    e.preventDefault();
-                }
-
-                // Ctrl/Cmd + Shift + I (Abrir/Cerrar DevTools)
-                if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
-                    e.preventDefault();
-                }
-
-                // Ctrl/Cmd + Shift + J (Abrir Consola DevTools)
-                if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
-                    e.preventDefault();
-                }
-                
-                // Ctrl/Cmd + U (Ver código fuente)
-                if ((e.ctrlKey || e.metaKey) && (e.key === 'U' || e.key === 'u')) {
-                    e.preventDefault();
-                }
-            });
-            // -------------------------------------------
+        // --- NAVEGACIÓN ---
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => menu.classList.add('hidden'));
         });
     </script>
-
 </body>
 </html>
